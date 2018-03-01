@@ -988,9 +988,6 @@ body {
     width: 100% !important;
   }
 }
-.cid-qL1AKfFUPk {
-  background-image: url("../../../assets/images/background7.jpg");
-}
 .cid-qL1AKfFUPk .mbr-section {
   padding: 0;
 }
@@ -999,9 +996,6 @@ body {
   padding: 0 5%;
   padding-top: 90px;
   padding-bottom: 90px;
-}
-.cid-qL1AKfFUPk .second-col {
-  background-color: #000000;
 }
 .cid-qL1AKfFUPk .icon-transition span {
   color: #ffffff;
@@ -1130,7 +1124,7 @@ body {
   content: '41';
 }
 .cid-qL1AKfFUPk .progress4 .progressbar-number:before {
-  content: '28';
+  content: '65';
 }
 .cid-qL1AKfFUPk .progress5 .progressbar-number:before {
   content: '10';
@@ -1145,7 +1139,7 @@ body {
   width: 41%;
 }
 .cid-qL1AKfFUPk .progress-bar-4 {
-  width: 28%;
+  width: 65%;
 }
 .cid-qL1AKfFUPk .progress-bar-5 {
   width: 10%;
