@@ -976,3 +976,15 @@ body {
   background: #232323;
   display: inline-block;
 }
+.cid-qL1tUi3gIZ {
+  background: #ffffff;
+}
+.cid-qL1tUi3gIZ .video-block {
+  margin: auto;
+  width: 100% !important;
+}
+@media (max-width: 768px) {
+  .cid-qL1tUi3gIZ .video-block {
+    width: 100% !important;
+  }
+}
