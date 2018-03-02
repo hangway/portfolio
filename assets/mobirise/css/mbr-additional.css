@@ -1010,6 +1010,9 @@ body {
   transition: all 0.3s ease-out 0s;
   font-size: 14px;
 }
+.cid-qL6KtquscS .content-row {
+  flex-direction: row-reverse;
+}
 .cid-qL6KtquscS .photo-split {
   padding: 0;
 }
