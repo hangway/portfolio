@@ -992,98 +992,16 @@ body {
     width: 100% !important;
   }
 }
-.cid-qL6KtquscS {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: #232323;
+.cid-qL6MhPJJHJ {
+  background: #ffffff;
 }
-.cid-qL6KtquscS .icon-transition span {
-  padding: 0.1rem 0.9rem;
-  border-radius: 50%;
-  color: #232323;
-  display: block;
-  height: 3em;
-  line-height: 3em;
-  width: 3em;
-  background: #ffffff none repeat scroll 0 0;
-  -webkit-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-  font-size: 14px;
+.cid-qL6MhPJJHJ .video-block {
+  margin: auto;
+  width: 100% !important;
 }
-.cid-qL6KtquscS .content-row {
-  flex-direction: row-reverse;
-}
-.cid-qL6KtquscS .photo-split {
-  padding: 0;
-}
-.cid-qL6KtquscS .photo-split img {
-  width: 100%;
-}
-.cid-qL6KtquscS .icon-transition span:hover {
-  background-color: #ffbc00;
-}
-.cid-qL6KtquscS .counter-container ul {
-  display: flex;
-  flex-direction: column;
-}
-.cid-qL6KtquscS .counter-container ul li {
-  margin-bottom: .5rem;
-  list-style: ✓;
-}
-.cid-qL6KtquscS .counter-container ul li:before {
-  color: #ffbc00;
-  display: inline-block;
-  content: '✓';
-  text-align: center;
-  line-height: 1.5em;
-  transition: all .2s;
-  width: 25px;
-  height: 25px;
-}
-.cid-qL6KtquscS .wrap-block {
-  padding: 3rem 3rem;
-}
-.cid-qL6KtquscS .wrap-block ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.cid-qL6KtquscS .wrap-block ul li {
-  display: inline-block;
-}
-.cid-qL6KtquscS .wrap-block ul li span {
-  text-align: center;
-}
-.cid-qL6KtquscS .social-media {
-  margin-top: 1.5em;
-  padding: 0;
-}
-.cid-qL6KtquscS .social-media ul {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 8px;
-}
-.cid-qL6KtquscS .social-media ul li {
-  padding: 4px;
-  display: inline-block;
-}
-.cid-qL6KtquscS .mbr-list,
-.cid-qL6KtquscS .social-media ul {
-  text-align: left;
-}
-@media (max-width: 500px) {
-  .cid-qL6KtquscS .wrap-block {
-    padding: 3rem 1rem;
-  }
-}
-@media (max-width: 767px) {
-  .cid-qL6KtquscS .mbr-section-title,
-  .cid-qL6KtquscS .mbr-section-subtitle,
-  .cid-qL6KtquscS .mbr-text {
-    text-align: center !important;
-  }
-  .cid-qL6KtquscS .social-list {
-    text-align: center !important;
+@media (max-width: 768px) {
+  .cid-qL6MhPJJHJ .video-block {
+    width: 100% !important;
   }
 }
 .cid-qL6C8Tk5yq {
