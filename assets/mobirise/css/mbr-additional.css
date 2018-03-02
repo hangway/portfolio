@@ -839,10 +839,10 @@ body {
   }
 }
 .cid-qL1h0VysAG .mbr-section-title {
-  color: #3e97d1;
+  color: #000000;
 }
 .cid-qL1h0VysAG SPAN {
-  color: #3e97d1;
+  color: #000000;
 }
 .cid-qL1hWhsTDl {
   padding-top: 90px;
@@ -990,5 +990,99 @@ body {
 @media (max-width: 768px) {
   .cid-qL1tUi3gIZ .video-block {
     width: 100% !important;
+  }
+}
+.cid-qL60ESBGqK {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #efefef;
+}
+.cid-qL60ESBGqK .icon-transition span {
+  padding: 0.1rem 0.9rem;
+  border-radius: 50%;
+  color: #ffffff;
+  display: block;
+  height: 3em;
+  line-height: 3em;
+  width: 3em;
+  background: #444444 none repeat scroll 0 0;
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  font-size: 14px;
+}
+.cid-qL60ESBGqK .content-row {
+  flex-direction: row-reverse;
+}
+.cid-qL60ESBGqK .photo-split {
+  padding: 0;
+}
+.cid-qL60ESBGqK .photo-split img {
+  width: 100%;
+}
+.cid-qL60ESBGqK .icon-transition span:hover {
+  background-color: #ffbc00;
+}
+.cid-qL60ESBGqK .counter-container ul {
+  display: flex;
+  flex-direction: column;
+}
+.cid-qL60ESBGqK .counter-container ul li {
+  margin-bottom: .5rem;
+  list-style: ✓;
+}
+.cid-qL60ESBGqK .counter-container ul li:before {
+  color: #ffbc00;
+  display: inline-block;
+  content: '✓';
+  text-align: center;
+  line-height: 1.5em;
+  transition: all .2s;
+  width: 25px;
+  height: 25px;
+}
+.cid-qL60ESBGqK .wrap-block {
+  padding: 3rem 3rem;
+}
+.cid-qL60ESBGqK .wrap-block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cid-qL60ESBGqK .wrap-block ul li {
+  display: inline-block;
+}
+.cid-qL60ESBGqK .wrap-block ul li span {
+  text-align: center;
+}
+.cid-qL60ESBGqK .social-media {
+  margin-top: 1.5em;
+  padding: 0;
+}
+.cid-qL60ESBGqK .social-media ul {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+}
+.cid-qL60ESBGqK .social-media ul li {
+  padding: 4px;
+  display: inline-block;
+}
+.cid-qL60ESBGqK .mbr-list,
+.cid-qL60ESBGqK .social-media ul {
+  text-align: left;
+}
+@media (max-width: 500px) {
+  .cid-qL60ESBGqK .wrap-block {
+    padding: 3rem 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .cid-qL60ESBGqK .mbr-section-title,
+  .cid-qL60ESBGqK .mbr-section-subtitle,
+  .cid-qL60ESBGqK .mbr-text {
+    text-align: center !important;
+  }
+  .cid-qL60ESBGqK .social-list {
+    text-align: center !important;
   }
 }
