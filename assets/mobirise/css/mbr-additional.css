@@ -842,7 +842,7 @@ body {
   color: #000000;
 }
 .cid-qL1h0VysAG SPAN {
-  color: #000000;
+  color: #ffffff;
 }
 .cid-qL1hWhsTDl {
   padding-top: 90px;
@@ -995,7 +995,7 @@ body {
 .cid-qLbQagvIHR {
   padding-top: 60px;
   padding-bottom: 60px;
-  background: #ffffff;
+  background: #0a67a3;
 }
 .cid-qLbQagvIHR .video-block {
   margin: auto;
@@ -1023,6 +1023,10 @@ body {
 }
 .cid-qLbQagvIHR .mbr-section-subtitle {
   margin-bottom: 1rem;
+}
+.cid-qLbQagvIHR .mbr-section-title,
+.cid-qLbQagvIHR .underline {
+  color: #ffffff;
 }
 .cid-qL6C8Tk5yq {
   padding-top: 45px;
