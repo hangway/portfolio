@@ -1031,7 +1031,7 @@ body {
 }
 .cid-qLsnzqw4Ph .progress-bar {
   height: 5px;
-  background-color: #ffffff;
+  background-color: #00b15c;
 }
 .cid-qLsnzqw4Ph .title-wrap {
   display: flex;
@@ -1051,19 +1051,19 @@ body {
 }
 .cid-qLsnzqw4Ph .progress_value {
   position: relative;
-  color: #ffffff;
+  color: #00b15c;
 }
 .cid-qLsnzqw4Ph progress[value]::-webkit-progress-bar {
   background: rgba(206, 206, 206, 0.4);
 }
 .cid-qLsnzqw4Ph progress::-webkit-progress-value {
-  background: #ffffff;
+  background: #00b15c;
 }
 .cid-qLsnzqw4Ph progress[value]::-moz-progress-bar {
-  background: #ffffff;
+  background: #00b15c;
 }
 .cid-qLsnzqw4Ph progress::-ms-fill {
-  background: #ffffff;
+  background: #00b15c;
 }
 .cid-qLsnzqw4Ph .progress1 .progressbar-number:before {
   content: '100';
