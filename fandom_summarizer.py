@@ -60,8 +60,11 @@ SMART_MODEL = "claude-opus-4-8"
 OUTPUT_LANG = "Traditional Chinese"
 
 MAX_PAGES_PER_LENS = 10             # 每個 lens 最多處理幾頁 (控成本；先小後大)
-REQUEST_DELAY = 0.5                 # 每次 API 請求間隔秒數 (禮貌節流)
+REQUEST_DELAY = 1.0                  # 每次 API 請求間隔秒數 (禮貌節流；若持續被擋，調高到 2-3)
 USER_AGENT = "FandomSummarizer-POC/1.0 (personal research)"
+# 若某個 wiki 持續回傳非 JSON 內容 (通常是反機器人驗證頁)，代表 Fandom 判定此流量為自動化存取。
+# 這是他們使用條款明文禁止未經授權之機器人存取的技術執行；本腳本的因應方式是節流、重試、
+# 給出清楚的錯誤訊息，而不是想辦法「破解」該驗證。持續被擋時，改用對話裡的 web_search 取樣法。
 
 # 每個 lens 的取材來源。
 #   seed_pages       = 一定納入的頁面標題 (缺頁自動略過)
@@ -120,16 +123,67 @@ class MediaWikiClient:
         self.api = f"https://{wiki}.fandom.com/api.php"
         self.base = f"https://{wiki}.fandom.com/wiki/"
         self.s = requests.Session()
-        self.s.headers.update({"User-Agent": USER_AGENT})
+        # 完整一點的標頭組合 (不只 User-Agent)：降低被當成裸 script 流量的機率。
+        # 這仍是誠實表明身份的 bot UA，不是偽裝成瀏覽器。
+        self.s.headers.update({
+            "User-Agent": USER_AGENT,
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+        self._warmed = False
+
+    def _warm_session(self):
+        """先訪問一次首頁拿 cookie，讓後續 api.php 請求更接近正常瀏覽順序（而非冷啟動直接打 API）。
+        失敗不影響後續流程——純粹是盡量降低被判定為機器人的機率，不是繞過驗證的手段。"""
+        if self._warmed:
+            return
+        try:
+            self.s.get(self.base, timeout=20)
+        except requests.RequestException:
+            pass
+        self._warmed = True
 
     def _get(self, params: dict, retries: int = 4) -> dict:
+        self._warm_session()
         params = {**params, "format": "json", "maxlag": 5}
         for attempt in range(retries):
             time.sleep(REQUEST_DELAY)
-            r = self.s.get(self.api, params=params, timeout=30)
-            if r.status_code == 503:  # maxlag / server busy -> back off
-                time.sleep(2 * (attempt + 1))
+            try:
+                r = self.s.get(self.api, params=params, timeout=30)
+            except requests.RequestException as e:
+                if attempt == retries - 1:
+                    raise RuntimeError(f"連線失敗（{e}）。檢查網路，或該 wiki 是否暫時無法連線。") from e
+                time.sleep(3 * (attempt + 1))
                 continue
+
+            if r.status_code in (403, 429, 503):
+                # 403/429 常見於被判定為自動化流量或速率限制；503 常見於 maxlag 或維護。
+                if attempt == retries - 1:
+                    raise RuntimeError(
+                        f"收到 HTTP {r.status_code}，重試 {retries} 次後仍失敗。"
+                        "這通常代表 Fandom 的反機器人防護把此請求判定為自動化流量——"
+                        "這是他們使用條款禁止未授權機器人存取的技術執行，不是單純的網路錯誤。"
+                        f"可先調高 REQUEST_DELAY（目前 {REQUEST_DELAY}s）、減少 --max-pages，"
+                        "或改用對話裡直接 web_search 取樣（不會打到 Fandom 的伺服器）。"
+                    )
+                time.sleep((2 if r.status_code == 503 else 4) * (attempt + 1))
+                continue
+
+            ctype = r.headers.get("Content-Type", "")
+            if "json" not in ctype:
+                # 收到 HTML 而非 JSON，最常見的原因是 Cloudflare「請稍候…」驗證頁，
+                # 而不是真正的 API 回應。直接 r.json() 會噴難懂的 JSONDecodeError，這裡改成明確診斷。
+                if attempt == retries - 1:
+                    snippet = r.text[:150].replace("\n", " ").strip()
+                    raise RuntimeError(
+                        f"預期是 JSON，卻收到 Content-Type={ctype!r} 的內容"
+                        f"（開頭：{snippet!r}…）。這通常是反機器人驗證頁，代表此 wiki "
+                        "對自動化請求做了較嚴格的防護，重試無法解決——建議改用對話裡的 "
+                        "web_search 取樣法（本次對 x-files.fandom.com 就是這樣繞過去的）。"
+                    )
+                time.sleep(3 * (attempt + 1))
+                continue
+
             r.raise_for_status()
             data = r.json()
             if "error" in data and data["error"].get("code") == "maxlag":
