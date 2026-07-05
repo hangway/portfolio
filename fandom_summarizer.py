@@ -61,7 +61,7 @@ OUTPUT_LANG = "Traditional Chinese"
 
 MAX_PAGES_PER_LENS = 10             # 每個 lens 最多處理幾頁 (控成本；先小後大)
 REQUEST_DELAY = 0.5                 # 每次 API 請求間隔秒數 (禮貌節流)
-USER_AGENT = "FandomSummarizer-POC/1.0 (personal research; contact: you@example.com)"
+USER_AGENT = "FandomSummarizer-POC/1.0 (personal research)"
 
 # 每個 lens 的取材來源。
 #   seed_pages       = 一定納入的頁面標題 (缺頁自動略過)
