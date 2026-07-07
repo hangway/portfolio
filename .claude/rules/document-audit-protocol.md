@@ -1,11 +1,11 @@
 # Document & Repo Audit Protocol (Fable Audit SOP)
 
-<!-- Source: @Kayly.AI "FABLE 實戰" carousel · Systematized 2026-07-06 · v1.0-EN -->
+<!-- Source: @Kayly.AI "FABLE 實戰" carousel · Systematized 2026-07-06 · v1.1-EN -->
 <!-- Scope: Apply this protocol whenever the user asks to audit, review, diagnose, or reorganize any document, SOP, skill, system prompt, or repo structure. -->
 
 ## Non-negotiable principles
 
-1. **Propose first, act after approval.** NEVER modify or rewrite any file before the plan is explicitly approved. Control stays with the human.
+1. **Propose first, act after approval.** NEVER modify or rewrite any file before the plan is explicitly approved. Control stays with the human. In asynchronous sessions, work only on an unmerged feature branch; the merge/PR review is the approval gate. Never push to the default branch without approval.
 2. **Evidence, not feel.** Every finding must carry its reasoning and risk, ranked by impact. Whether and how much to change is the human's decision.
 3. **Persist the standard.** After any review, consolidate the criteria used into a standalone reusable file, so any future model can execute against the same standard. Models get replaced; documents remain.
 
